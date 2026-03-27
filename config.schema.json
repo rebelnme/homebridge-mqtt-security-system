@@ -1,8 +1,8 @@
 {
-  "pluginAlias": "MqttUnifiProtectPlatform",
+  "pluginAlias": "MqttSecuritySystem",
   "pluginType": "platform",
   "singular": true,
-  "headerDisplay": "MQTT UniFi Protect Alarm Configuration",
+  "headerDisplay": "MQTT Security System Alarm Configuration",
   "footerDisplay": "Configure MQTT connection and sensor behavior.",
   "schema": {
     "type": "object",
@@ -64,14 +64,26 @@
               "placeholder": "Front Door"
             },
 
-            "mac": {
+            "topic": {
               "type": "string",
-              "title": "Mac Address (No Colons)",
-              "placeholder": "AABBCCDDEEFF",
-              "pattern": "^[A-Fa-f0-9:]{12,17}$",
-              "description": "12 hex characters. Colons are optional and will be removed automatically. Uppercase enforced."
+              "title": "MQTT Topic",
+              "placeholder": "sensors/front_door",
+              "decription": "MQTT state topic for alarm sensors"
             },
 
+            "payloadOn": {
+              "type": "string",
+              "title": "Payload On",
+              "placeholder": "on",
+              "description": "MQTT payload on for the sensor."
+            },
+
+            "payloadOff": {
+              "type": "string",
+              "title": "Payload Off",
+              "placeholder": "off",
+              "description": "MQTT payload off for the sensor."
+            },
             "type": {
               "type": "string",
               "title": "Sensor Type",
@@ -90,7 +102,20 @@
               "title": "Armed in Away Mode",
               "default": true
             },
+            
+            "armNight": {
+              "type": "boolean",
+              "title": "Armed in Night Mode",
+              "default": false
+            },
 
+            "doubleKnock": {
+              "type": "boolean",
+              "title": "Double Knock",
+              "default": false,
+              "description": "Requires 2 or more of the double knock sensors to trip the alarm."
+            },
+            
             "entryDelay": {
               "type": "number",
               "title": "Entry Delay (seconds)",
@@ -100,7 +125,7 @@
             }
 
           },
-          "required": ["name", "mac", "type"]
+          "required": ["name", "topic", "payloadOn", "payloadOff", "type"]
         }
       }
 
