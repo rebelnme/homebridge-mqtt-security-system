@@ -4,9 +4,9 @@ const MqttUnifiProtectPlatform = require('./platform');
 
 module.exports = (api) => {
   api.registerPlatform(
-    'homebridge-mqtt-unifi-protect', // npm package name
-    'MqttUnifiProtectPlatform', // platform name used in config.json/UI
-    MqttUnifiProtectPlatform,
+    'homebridge-mqtt-security-system', // npm package name
+    'MqttSecuritySystemPlatform', // platform name used in config.json/UI
+    MqttSecuritySystemPlatform,
     true // dynamic platform
   );
 };
