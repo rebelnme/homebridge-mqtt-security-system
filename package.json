@@ -1,7 +1,7 @@
 {
-  "name": "homebridge-mqtt-unifi-protect",
+  "name": "homebridge-mqtt-security-system",
   "version": "3.4.23",
-  "description": "Homebridge plugin that creates a HomeKit Security System using MQTT events from UniFi Protect sensors.",
+  "description": "Homebridge plugin that creates a HomeKit Security System using MQTT sensors.",
   "main": "index.js",
   "keywords": [
     "homebridge-plugin",
@@ -12,16 +12,16 @@
     "security",
     "alarm"
   ],
-  "author": "RdyPlayer1",
+  "author": "rebelnme",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/RdyPlayer1/homebridge-mqtt-unifi-protect.git"
+    "url": "https://github.com/RdyPlayer1/homebridge-mqtt-security-system.git"
   },
   "bugs": {
-    "url": "https://github.com/RdyPlayer1/homebridge-mqtt-unifi-protect/issues"
+    "url": "https://github.com/rebelnme/homebridge-mqtt-security-system/issues"
   },
-  "homepage": "https://github.com/RdyPlayer1/homebridge-mqtt-unifi-protect",
+  "homepage": "https://github.com/RdyPlayer1/homebridge-mqtt-security-system",
   "engines": {
     "homebridge": ">=1.6.0",
     "node": ">=18.0.0"
@@ -32,8 +32,8 @@
   "homebridge": {
     "platforms": [
       {
-        "platform": "MqttUnifiProtectPlatform",
-        "name": "MQTT UniFi Protect Alarm"
+        "platform": "MqttSecuritySystemPlatform",
+        "name": "MQTT Security System"
       }
     ]
   }
