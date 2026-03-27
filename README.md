@@ -1,4 +1,4 @@
-# Homebridge MQTT UniFi Protect Alarm
+# Homebridge MQTT Security System
 
 ![npm](https://img.shields.io/npm/v/homebridge-mqtt-unifi-protect)
 ![downloads](https://img.shields.io/npm/dt/homebridge-mqtt-unifi-protect)
@@ -6,16 +6,14 @@
 ![mqtt](https://img.shields.io/badge/MQTT-supported-brightgreen)
 ![license](https://img.shields.io/badge/license-MIT-green)
 
-A Homebridge dynamic platform plugin that creates a **HomeKit Security System** using MQTT events from UniFi Protect sensors. 
-
-This plugin relies on **Homebridge-unifi-protect** plugin for the way it publishes topics to MQTT so please install that first.
+A Homebridge dynamic platform plugin that creates a **HomeKit Security System** using MQTT events from sensors. 
 
 ⚠️ Some security scanners may report a DoS vulnerability in glob. This comes from dependencies used by Homebridge. It does not affect plugin safety.
 
 ## Features
 
 - 🏠 Home (Stay) arming  
-- 🚗 Away arming  
+- 🚗 Away arming 
 - ⏱ Global exit delay  
 - ⏱ Per-sensor entry delay  
 - 🚨 Configurable alarm duration  
@@ -51,18 +49,24 @@ Restart Homebridge after installation.
   "devices": [
     {
       "name": "Front Door",
-      "mac": "AABBCCDDEEFF",
+      "topic": "sensors/front_door",
+      "payloadOn": "on",
+      "payloadOff": "off",
       "type": "contact",
-      "armHome": false,
+      "armHome": true,
       "armAway": true,
+      "armNight": true,
       "entryDelay": 15
     },
     {
       "name": "Living Room Motion",
-      "mac": "112233445566",
+      "topic": "sensors/living_room_motion",
+      "payloadOn": "active",
+      "payloadOff": "clear",
       "type": "motion",
-      "armHome": true,
+      "armHome": false,
       "armAway": true,
+      "armNight": false,
       "entryDelay": 0
     }
   ]
