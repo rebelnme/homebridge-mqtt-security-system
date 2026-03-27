@@ -1,5 +1,5 @@
 {
-  "pluginAlias": "MqttSecuritySystem",
+  "pluginAlias": "MqttSecuritySystemPlatform",
   "pluginType": "platform",
   "singular": true,
   "headerDisplay": "MQTT Security System Alarm Configuration",
